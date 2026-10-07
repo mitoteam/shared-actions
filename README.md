@@ -1,2 +1,5 @@
-# shared-actions
-Workflows to use in other projects
+# MiTo Team shared actions
+
+GitHub Workflows to use in other projects
+
+
