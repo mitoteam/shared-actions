@@ -1,5 +1,10 @@
 # MiTo Team shared actions
 
+![GitHub](https://img.shields.io/github/license/mitoteam/shared-actions)
+![GitHub code size](https://img.shields.io/github/languages/code-size/mitoteam/shared-actions)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/mitoteam/shared-actions)](https://github.com/mitoteam/shared-actions/commits)
+
+
 GitHub Workflows to use in other projects
 
 ## go-pkg-autorelease.yml
