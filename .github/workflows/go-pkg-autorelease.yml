@@ -2,6 +2,13 @@ name: AutoRelease
 
 on:
   workflow_call:
+    inputs:
+      draft_release:
+        description: 'Create the GitHub Release as a draft'
+        required: false
+        type: boolean
+        default: true # creating draft releases by default
+
 
 jobs:
   BuildAndRelease:
@@ -42,7 +49,7 @@ jobs:
       id: release
       uses: softprops/action-gh-release@v3
       with:
-        draft: false
+        draft: ${{ inputs.draft_release }}
         tag_name: "v${{ env.MT_VERSION }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
