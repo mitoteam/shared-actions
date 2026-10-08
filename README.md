@@ -45,7 +45,7 @@ on:
 
 jobs:
   BuildAndTest:
-    uses: mitoteam/shared-actions/.github/workflows/go-build-and-test.yml@main
+    uses: mitoteam/shared-actions/.github/workflows/goapp-build-and-test.yml@main
     secrets: inherit
     permissions:
       contents: write
