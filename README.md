@@ -28,3 +28,25 @@ jobs:
     with:
           draft_release: false
 ```
+
+## go-build-and-test.yml
+
+Usage example
+
+```yaml
+name: Build-and-Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  BuildAndTest:
+    uses: mitoteam/shared-actions/.github/workflows/go-build-and-test.yml@main
+    secrets: inherit
+    permissions:
+      contents: write
+```
