@@ -27,6 +27,7 @@ jobs:
             echo "::error file=VERSION::Error: File 'VERSION' not found in repository root"
             exit 1
           fi
+
     - name: Set and show version number
       run: |
         VERSION=$(cat VERSION)
