@@ -22,11 +22,11 @@ on:
 jobs:
   BuildAndRelease:
     uses: mitoteam/shared-actions/.github/workflows/go-pkg-autorelease.yml@main
+    with:
+      draft_release: false # publish it if everything goes well
     secrets: inherit
     permissions:
       contents: write
-    with:
-          draft_release: false
 ```
 
 ## go-build-and-test.yml
@@ -46,6 +46,30 @@ on:
 jobs:
   BuildAndTest:
     uses: mitoteam/shared-actions/.github/workflows/goapp-build-and-test.yml@main
+    secrets: inherit
+    permissions:
+      contents: write
+```
+
+## goapp-autorelease.yml
+
+Usage example
+
+```yaml
+name: AutoRelease
+
+on:
+  push:
+    branches: [main]
+    paths: [VERSION]
+  workflow_dispatch:
+
+jobs:
+  AutoRelease:
+    uses: mitoteam/shared-actions/.github/workflows/goapp-autorelease.yml@main
+    with:
+      dist_name: "mt-checklist"
+      draft_release: true # do not auto-publish
     secrets: inherit
     permissions:
       contents: write
