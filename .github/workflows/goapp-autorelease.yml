@@ -55,8 +55,8 @@ jobs:
           check-latest: true
 
       - name: Set up Dart Sass
-      - if: ${{ inputs.install_sass }}
-      - uses: dw-labs-org/dart-sass-gha@v1
+        if: ${{ inputs.install_sass }}
+        uses: dw-labs-org/dart-sass-gha@v1
 
       - name: Set up 7-zip
         uses: milliewalky/setup-7-zip@v2

@@ -38,9 +38,5 @@ jobs:
       uses: dw-labs-org/dart-sass-gha@v1
 
 
-    - name: Test Build
-      run: go build -v ./...
-
-
-    - name: MiToTeam Tests
-      run: make tests
+    - name: Check binaries buildability (this will also run tests)
+      run: make bin-all
