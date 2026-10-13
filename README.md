@@ -47,7 +47,7 @@ jobs:
   BuildAndTest:
     uses: mitoteam/shared-actions/.github/workflows/goapp-build-and-test.yml@main
     with:
-	  install_sass: true
+      install_sass: true
     secrets: inherit
     permissions:
       contents: write
