@@ -34,8 +34,8 @@ jobs:
 
 
     - name: Set up Dart Sass
-    - if: ${{ inputs.install_sass }}
-    - uses: dw-labs-org/dart-sass-gha@v1
+      if: ${{ inputs.install_sass }}
+      uses: dw-labs-org/dart-sass-gha@v1
 
 
     - name: Test Build
