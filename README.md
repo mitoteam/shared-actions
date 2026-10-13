@@ -72,7 +72,7 @@ jobs:
     with:
       dist_name: "mt-checklist"
       draft_release: true # do not auto-publish
-	  install_sass: true
+      install_sass: true
     secrets: inherit
     permissions:
       contents: write
