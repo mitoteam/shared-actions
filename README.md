@@ -46,6 +46,8 @@ on:
 jobs:
   BuildAndTest:
     uses: mitoteam/shared-actions/.github/workflows/goapp-build-and-test.yml@main
+    with:
+	  install_sass: true
     secrets: inherit
     permissions:
       contents: write
@@ -70,6 +72,7 @@ jobs:
     with:
       dist_name: "mt-checklist"
       draft_release: true # do not auto-publish
+	  install_sass: true
     secrets: inherit
     permissions:
       contents: write

@@ -2,6 +2,12 @@ name: Build-and-Test
 
 on:
   workflow_call:
+    inputs:
+      install_sass:
+        description: 'Install Dart Sass to build css assets'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   Build-and-Test:
@@ -10,12 +16,15 @@ jobs:
     - name: Set env
       run: echo "TERM=linux" >> "$GITHUB_ENV"
 
+
     - uses: actions/checkout@v7
       with:
         submodules: recursive
 
+
     - name: Checking out all submodules to the tip of a branch
       run: git submodule foreach --recursive git checkout main
+
 
     - name: Set up Go
       uses: actions/setup-go@v7
@@ -23,8 +32,15 @@ jobs:
         go-version: '^1.27'
         check-latest: true
 
+
+    - name: Set up Dart Sass
+    - if: ${{ inputs.install_sass }}
+    - uses: dw-labs-org/dart-sass-gha@v1
+
+
     - name: Test Build
       run: go build -v ./...
+
 
     - name: MiToTeam Tests
       run: make tests
