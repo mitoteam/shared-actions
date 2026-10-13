@@ -70,12 +70,14 @@ jobs:
         with:
           draft: ${{ inputs.draft_release }}
           tag_name: "v${{ env.MT_VERSION }}"
+          overwrite_files: false
+          working_directory: "dist"
           files: |
-            dist/${{ inputs.dist_name }}-${{ env.MT_VERSION }}-linux32.7z
-            dist/${{ inputs.dist_name }}-${{ env.MT_VERSION }}-linux64.7z
-            dist/${{ inputs.dist_name }}-${{ env.MT_VERSION }}-win32.7z
-            dist/${{ inputs.dist_name }}-${{ env.MT_VERSION }}-win64.7z
-            dist/checksums.sha256
+            ${{ inputs.dist_name }}-${{ env.MT_VERSION }}-linux32.7z
+            ${{ inputs.dist_name }}-${{ env.MT_VERSION }}-linux64.7z
+            ${{ inputs.dist_name }}-${{ env.MT_VERSION }}-win32.7z
+            ${{ inputs.dist_name }}-${{ env.MT_VERSION }}-win64.7z
+            checksums.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
