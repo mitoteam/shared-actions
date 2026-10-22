@@ -1,0 +1,36 @@
+name: Build-and-tests
+
+on:
+  workflow_call:
+
+jobs:
+  Build-and-Test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set env
+      run: echo "TERM=linux" >> "$GITHUB_ENV"
+
+
+    - uses: actions/checkout@v7
+      with:
+        submodules: recursive
+
+
+    - name: Checking out all submodules to the tip of a branch
+      run: git submodule foreach --recursive git checkout main
+
+
+    - name: Set up Go
+      uses: actions/setup-go@v7
+      with:
+        go-version: '^1.27'
+        check-latest: true
+
+    - name: Deal with go modules
+      run: go mod tidy
+
+    - name: Make sure it compiles
+      run: go build
+
+    - name: Make sure tests are not failing
+      run: go test
